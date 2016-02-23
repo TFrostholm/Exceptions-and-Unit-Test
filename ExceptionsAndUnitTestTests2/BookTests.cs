@@ -11,11 +11,26 @@ namespace ExceptionsAndUnitTest.Tests
     [TestClass()]
     public class BookTests
     {
+        public Book TestBook = new Book();
+
         [TestMethod()]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        //Did know how to use : [ExpectedException(typeof(ArgumentOutOfRangeException))]
+
         public void SetTitleTest()
         {
-                //throw new ArgumentOutOfRangeException();
+            Exception caugthException = null;
+            try
+            {
+                TestBook.SetTitle("a");
+            }
+            catch (Exception e)
+            {
+                e = caugthException;
+            }
+
+            Assert.IsNotNull(caugthException);
+
+            // I give up...
         }
     }
 }
